@@ -1,3 +1,7 @@
+v1.6.2
+----------
+ * Added private S3 bucket support
+
 v1.6.1
 ----------
  * Add RocketChat scheme
