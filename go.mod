@@ -9,9 +9,9 @@ require (
 	github.com/nyaruka/phonenumbers v1.0.58
 	github.com/pkg/errors v0.9.1
 	github.com/shopspring/decimal v1.2.0
-	github.com/stretchr/testify v1.6.1
+	github.com/stretchr/testify v1.7.0
 	golang.org/x/net v0.0.0-20200925080053-05aa5d4ee321
 	golang.org/x/text v0.3.3 // indirect
 )
 
-go 1.15
+go 1.16
