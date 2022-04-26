@@ -40,6 +40,10 @@ v1.7.0
 ----------
  * Add support for IP networks in httpx.AccessConfig
 
+v1.6.2
+----------
+ * Added private S3 bucket support
+
 v1.6.1
 ----------
  * Add RocketChat scheme
