@@ -43,7 +43,7 @@ func (c *testPrivateS3Client) PutObjectWithContext(ctx context.Context, input *s
 
 func TestPrivateS3Test(t *testing.T) {
 	client := &testPrivateS3Client{}
-	s := storage.NewPrivateS3(client, "mybucket", 1,"https://mybucket.s3.amazonaws.com")
+	s := storage.NewPrivateS3(client, "mybucket", 1, "https://mybucket.s3.amazonaws.com")
 
 	assert.NoError(t, s.Test(context.Background()))
 
@@ -55,7 +55,7 @@ func TestPrivateS3Test(t *testing.T) {
 func TestPrivateS3Get(t *testing.T) {
 	ctx := context.Background()
 	client := &testPrivateS3Client{}
-	s := storage.NewPrivateS3(client, "mybucket", 1,"https://mybucket.s3.amazonaws.com")
+	s := storage.NewPrivateS3(client, "mybucket", 1, "https://mybucket.s3.amazonaws.com")
 
 	client.getObjectReturnValue = &s3.GetObjectOutput{
 		ContentType: aws.String("text/plain"),
@@ -76,7 +76,7 @@ func TestPrivateS3Get(t *testing.T) {
 func TestPrivateS3Put(t *testing.T) {
 	ctx := context.Background()
 	client := &testPrivateS3Client{}
-	s := storage.NewPrivateS3(client, "mybucket", 1,"https://mybucket.s3.amazonaws.com")
+	s := storage.NewPrivateS3(client, "mybucket", 1, "https://mybucket.s3.amazonaws.com")
 
 	url, err := s.Put(ctx, "/foo/things", "text/plain", []byte(`HELLOWORLD`))
 	assert.NoError(t, err)
@@ -116,7 +116,7 @@ func TestPrivateS3BatchPut(t *testing.T) {
 	assert.NotEmpty(t, uploads[1].URL)
 
 	// try again, with a single thread and throwing an error
-	s = storage.NewS3(client, "mybucket", 1)
+	s = storage.NewS3(client, "mybucket", "us-west-1", 1)
 	client.returnError = errors.New("boom")
 
 	uploads[0].URL = ""
