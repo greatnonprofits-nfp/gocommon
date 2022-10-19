@@ -1,3 +1,113 @@
+v1.32.0
+----------
+ * Storage types should have object permissions/acl set via constructor
+
+v1.31.0
+----------
+ * Update httpx.DetectContentType to also return extension
+ * Allow mock requestors to ignore localhost requests
+
+v1.30.2
+----------
+ * MockRequestor should log requests
+
+v1.30.1
+----------
+ * Time for an HTTP trace should include reading the entire body
+
+v1.30.0
+----------
+ * Use go 1.19
+ * Fix linter warnings
+ * Add httpx.BasicAuth util
+
+v1.29.0
+----------
+ * Add SantizedRequest to httpx.Trace to match SanitizedResponse
+
+v1.28.2
+----------
+ * Strip more headers from reconstructed requests
+
+v1.28.1
+----------
+ * Fix cloning of request bodies passed to httpx.NewRecorder
+
+v1.28.0
+----------
+ * Give httpx.Recorder the option to try to reconstruct the original request
+
+v1.27.0
+----------
+ * Simplify httpx.Recorder so it always dumps request first
+
+v1.26.0
+----------
+ * Use pointers to httpx.MockResponse
+ * Add HTTP Log support to httpx
+
+v1.25.0
+----------
+ * Tweak httpx.NewMockResponse to take a byte slice
+
+v1.24.1
+----------
+ * Tweak syncx naming and comments
+
+v1.24.0
+----------
+ * Allow use of AWS credential chain for S3 storage
+
+v1.23.0
+----------
+ * Add syncx.HashedMutexMap
+
+v1.22.5
+----------
+ * Add URN type for Teams channel
+
+v1.22.4
+----------
+ * Add dates.Since to match time.Since
+
+v1.22.3
+----------
+ * Add mock analytics backend for testing
+
+v1.22.2
+----------
+ * Update dependencies
+
+v1.22.1
+----------
+ * Fix dates.Date.Combine
+
+v1.22.0
+----------
+ * Add Slack Scheme
+
+v1.21.0
+----------
+ * Add analytics package which provides abstraction layer for librato
+
+v1.20.0
+----------
+ * Add support for db serialization to dates.Date
+
+v1.19.1
+----------
+ * Update to latest phonenumbers
+
+v1.19.0
+----------
+ * Update to go 1.18 and make dbutil.Bulk functions generic
+ * Tidy up scheme list to make it easier to see what is there
+
+v1.18.0
+----------
+ * CI with go 1.17 and 1.18
+ * Add httpx.DetectContentType which wraps functionality from github.com/gabriel-vasile/mimetype
+
 v1.17.1
 ----------
  * Fix race condition in S3Storage.BatchPut
