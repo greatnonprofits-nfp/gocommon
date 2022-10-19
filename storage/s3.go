@@ -16,7 +16,7 @@ import (
 	"github.com/pkg/errors"
 )
 
-var s3BucketURL = "https://%s.s3.amazonaws.com%s"
+var s3BucketURL = "https://%s.s3.%s.amazonaws.com%s"
 
 // S3Client provides a mockable subset of the S3 API
 type S3Client interface {
@@ -33,7 +33,7 @@ type S3Options struct {
 	Region             string
 	DisableSSL         bool
 	ForcePathStyle     bool
-	WorkersPerBatch    int
+	MaxRetries         int
 }
 
 // NewS3Client creates a new S3 client
@@ -44,6 +44,7 @@ func NewS3Client(opts *S3Options) (S3Client, error) {
 		Region:           aws.String(opts.Region),
 		DisableSSL:       aws.Bool(opts.DisableSSL),
 		S3ForcePathStyle: aws.Bool(opts.ForcePathStyle),
+		MaxRetries:       aws.Int(opts.MaxRetries),
 	})
 	if err != nil {
 		return nil, err
@@ -55,13 +56,14 @@ func NewS3Client(opts *S3Options) (S3Client, error) {
 type s3Storage struct {
 	client          S3Client
 	bucket          string
+	region          string
 	workersPerBatch int
 }
 
 // NewS3 creates a new S3 storage service. Callers can specify how many parallel uploads will take place at
 // once when calling BatchPut with workersPerBatch
-func NewS3(client S3Client, bucket string, workersPerBatch int) Storage {
-	return &s3Storage{client: client, bucket: bucket, workersPerBatch: workersPerBatch}
+func NewS3(client S3Client, bucket, region string, workersPerBatch int) Storage {
+	return &s3Storage{client: client, bucket: bucket, region: region, workersPerBatch: workersPerBatch}
 }
 
 func (s *s3Storage) Name() string {
@@ -188,5 +190,5 @@ func (s *s3Storage) BatchPut(ctx context.Context, us []*Upload) error {
 }
 
 func (s *s3Storage) url(path string) string {
-	return fmt.Sprintf(s3BucketURL, s.bucket, path)
+	return fmt.Sprintf(s3BucketURL, s.bucket, s.region, path)
 }

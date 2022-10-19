@@ -1,3 +1,24 @@
+v1.14.1
+----------
+ * Allow specifying max retries for S3 clients and update client library
+
+v1.14.0
+----------
+ * HTTP traces should include number of retries made
+ * Build and test with go 1.17
+
+v1.13.2
+----------
+ * Update to latest phonenumbers
+
+v1.13.1
+----------
+ * Add webchat URN scheme
+
+v1.13.0
+----------
+ * Include AWS region in storage URLs
+
 v1.12.0
 ----------
  * Add support for sanitizing a response trace by stripping nulls as well as invalid UTF8
