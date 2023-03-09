@@ -1,3 +1,33 @@
+v1.35.0 (2023-02-18)
+-------------------------
+ * bump golang.org/x/net from 0.5.0 to 0.7.0
+ * Update to latest phonenumbers
+ * Remove null value support functions now that nyaruka/null has been updated
+
+v1.34.1 (2023-01-31)
+-------------------------
+ * Update dependencies including phonenumbers
+
+v1.34.0 (2023-01-26)
+-------------------------
+ * Add util functions for working with nullable string types
+
+v1.33.1 (2022-11-28)
+-------------------------
+ * Update deps
+
+v1.33.0 (2022-11-18)
+-------------------------
+ * Add util function dbutil.ToValidUTF8
+
+v1.32.2
+----------
+ * Fix passing ACL to S3 puts
+
+v1.32.1
+----------
+ * Update deps including phonenumbers
+
 v1.32.0
 ----------
  * Storage types should have object permissions/acl set via constructor
