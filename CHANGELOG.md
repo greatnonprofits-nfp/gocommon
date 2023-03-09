@@ -1,3 +1,31 @@
+v1.17.1
+----------
+ * Fix race condition in S3Storage.BatchPut
+
+v1.17.0
+----------
+ * Remove rcache module (replace with redisx.IntervalHash) and thus broken redigo dependency
+
+v1.16.2
+----------
+ * Return QueryError if error during row iteration
+
+v1.16.1
+----------
+ * Fix IsUniqueViolation for wrapped errors
+
+v1.16.0
+----------
+ * Add dbutil package previously in mailroom
+
+v1.15.1
+----------
+ * Add URN scheme for instagram
+
+v1.15.0
+----------
+ * Make random functions threadsafe
+
 v1.14.1
 ----------
  * Allow specifying max retries for S3 clients and update client library
