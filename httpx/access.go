@@ -1,6 +1,7 @@
 package httpx
 
 import (
+	"fmt"
 	"net"
 	"net/http"
 	"strings"
@@ -51,4 +52,28 @@ func (c *AccessConfig) Allow(request *http.Request) (bool, error) {
 		}
 	}
 	return true, nil
+}
+
+// ParseNetworks parses a list of IPs and IP networks (written in CIDR notation)
+func ParseNetworks(addrs ...string) ([]net.IP, []*net.IPNet, error) {
+	ips := make([]net.IP, 0, len(addrs))
+	ipNets := make([]*net.IPNet, 0, len(addrs))
+
+	for _, addr := range addrs {
+		if strings.Contains(addr, "/") {
+			_, ipNet, err := net.ParseCIDR(addr)
+			if err != nil {
+				return nil, nil, fmt.Errorf("couldn't parse '%s' as an IP network", addr)
+			}
+			ipNets = append(ipNets, ipNet)
+		} else {
+			ip := net.ParseIP(addr)
+			if ip == nil {
+				return nil, nil, fmt.Errorf("couldn't parse '%s' as an IP address", addr)
+			}
+			ips = append(ips, ip)
+		}
+	}
+
+	return ips, ipNets, nil
 }

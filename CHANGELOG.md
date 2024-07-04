@@ -1,3 +1,212 @@
+v1.55.7 (2024-07-03)
+-------------------------
+ * Tweak dbutil.ScanJSON to work with sql.Row as well as sql.Rows
+
+v1.55.6 (2024-07-01)
+-------------------------
+ * Update deps
+
+v1.55.5 (2024-06-03)
+-------------------------
+ * Fix test
+
+v1.55.4 (2024-06-03)
+-------------------------
+ * Update date data from go-locales
+
+v1.55.3 (2024-05-27)
+-------------------------
+ * Update deps
+
+v1.55.2 (2024-05-22)
+-------------------------
+ * Update elastic query DSL syntax
+
+v1.55.1 (2024-05-20)
+-------------------------
+ * Use std library for errors
+
+v1.55.0 (2024-05-20)
+-------------------------
+ * Move elastic utils from goflow
+
+v1.54.9 (2024-05-09)
+-------------------------
+ * Allow sender id phone URNs
+
+v1.54.8 (2024-05-09)
+-------------------------
+ * Ensure that new URNs are normalized and change signaure of urns.NewFromParts to take url.Values
+
+v1.54.7 (2024-05-09)
+-------------------------
+ * Always trim whitespace on all parts of new URNs
+
+v1.54.6 (2024-05-08)
+-------------------------
+ * Tweak urns.ParseNumber so addition of a + is a fallback
+
+v1.54.5 (2024-05-08)
+-------------------------
+ * Phone URN normalization should re-parse
+ * Add arg to urns.ParseNumber to determine if it allows short codes
+
+v1.54.4 (2024-05-08)
+-------------------------
+ * Make phone parsing stricter
+
+v1.54.3 (2024-05-07)
+-------------------------
+ * Tweak urns.NewFromParts so scheme is a string and export the urns.Schemes slice instead of exposing via function
+
+v1.54.2 (2024-05-07)
+-------------------------
+ * Bring back auto adding of + to sufficiently long phone numbers when parsing URNs
+
+v1.54.1 (2024-05-07)
+-------------------------
+ * Add names to schemes and make urns.Schemes() return full Scheme objects
+
+v1.54.0 (2024-05-07)
+-------------------------
+ * Update deps
+ * Test with both go 1.21 and 1.22
+ * Refactor urns package
+
+v1.53.2 (2024-03-28)
+-------------------------
+ * assertdb assert methods should return bool
+
+v1.53.1 (2024-03-14)
+-------------------------
+ * Update to latest phonenumbers / protobuf
+
+v1.53.0 (2024-03-01)
+-------------------------
+ * Update to chi v5
+
+v1.52.4 (2024-02-12)
+-------------------------
+ * Allow mocked URL matching to be glob based
+
+v1.52.3 (2024-01-25)
+-------------------------
+ * Allow any comparable type for cache.Local keys
+
+v1.52.2 (2024-01-24)
+-------------------------
+ * Add a non-fetching Get, a Set and a Clear method to cache.Local
+
+v1.52.1 (2024-01-24)
+-------------------------
+ * Rename cache.Cache to cache.Local for clarity
+
+v1.52.0 (2024-01-24)
+-------------------------
+ * Add generic cache based on ttlcache and x/sync/singleflight
+ * Add email component to webchat URNs
+
+v1.51.2 (2024-01-15)
+-------------------------
+ * Panic if trying to close or start and already closed socket
+ * Fix controlled closing of websockets
+
+v1.51.1 (2024-01-12)
+-------------------------
+ * Allow cross site requests to websockets
+
+v1.51.0 (2024-01-12)
+-------------------------
+ * Add websocket functionality to httpx
+
+v1.50.0 (2024-01-10)
+-------------------------
+ * Rework support for webchat URNs, drop unused teams URNs
+ * Bump golang.org/x/crypto from 0.16.0 to 0.17.0
+
+v1.42.7 (2023-12-12)
+-------------------------
+ * Update deps
+
+v1.42.6 (2023-11-24)
+-------------------------
+ * Update to latest phonenumbers
+
+v1.42.5 (2023-11-20)
+-------------------------
+ * Update deps
+
+v1.42.4 (2023-11-13)
+-------------------------
+ * Tweak stringsx.Skeleton
+
+v1.42.3 (2023-11-08)
+-------------------------
+ * Update phonenumbers
+
+v1.42.2 (2023-10-30)
+-------------------------
+ * Add httpx.ParseNetworks util function
+
+v1.42.1 (2023-10-28)
+-------------------------
+ * Use error constants for some httpx error cases
+
+v1.42.0 (2023-10-12)
+-------------------------
+ * Update to go 1.21 and update deps
+
+v1.41.3 (2023-09-19)
+-------------------------
+ * Add dbutil.ScanAllJSON
+
+v1.41.2 (2023-09-11)
+-------------------------
+ * Allow creating query errors without an error to wrap
+
+v1.41.1 (2023-09-04)
+-------------------------
+ * Use i18n.Locale for date formatting
+
+v1.41.0 (2023-09-04)
+-------------------------
+ * Move some locales code from goflow/envs
+
+v1.40.0 (2023-08-31)
+-------------------------
+ * Rework syncx.Batcher so that it flushes a batch without waiting if it has enough items
+
+v1.39.1 (2023-08-28)
+-------------------------
+ * Rename dbutil.Queryer to BulkQueryer for clarity
+
+v1.39.0 (2023-08-28)
+-------------------------
+ * Use any instead of interface{}
+ * Add dbutil.ScanAllSlice and ScanAllMap
+ * Test on go 1.21
+
+v1.38.2 (2023-08-09)
+-------------------------
+ * Revert validator dep upgrade
+
+v1.38.1 (2023-08-09)
+-------------------------
+ * Update deps including phonenumbers
+
+v1.38.0 (2023-08-07)
+-------------------------
+ * Add confusables implementation to stringsx
+
+v1.37.0 (2023-07-20)
+-------------------------
+ * Storage paths shouldn't need to start with slash
+
+v1.36.0 (2023-06-30)
+-------------------------
+ * Add syncx.Batcher
+ * Use services for github CI
+
 v1.35.0 (2023-02-18)
 -------------------------
  * bump golang.org/x/net from 0.5.0 to 0.7.0
